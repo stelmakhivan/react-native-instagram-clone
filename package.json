@@ -1,0 +1,23 @@
+{
+  "name": "react-native-instagram-clone",
+  "version": "1.0.0",
+  "description": "Instagram Clone — Express + React Native",
+  "repository": "https://github.com/stelmakhivan/react-native-instagram-clone.git",
+  "author": "Ivan Stelmakh <stelmakh.developer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "dotenv": "^8.2.0",
+    "graphql-yoga": "^1.18.3",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
