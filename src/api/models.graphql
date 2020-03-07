@@ -11,7 +11,7 @@ type User {
   likes: [Like!]!
   comments: [Comment!]!
   rooms: [Room!]!
-  loginSecret: String!
+  loginSecret: String
 }
 
 type Post {
@@ -55,4 +55,8 @@ type Message {
   from: User!
   to: User!
   room: Room!
+}
+
+type Query {
+  something: String!
 }

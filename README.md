@@ -4,7 +4,9 @@ Instagram Clone — Express + React Native
 
 ## User Stories
 
-- [ ] Log in
+- [x] Create an account
+- [ ] Request Secret
+- [ ] Confirm Secret (Log In)
 - [ ] Like / Unlike the photo
 - [ ] Comment on a photo
 - [ ] Search by user
@@ -13,7 +15,6 @@ Instagram Clone — Express + React Native
 - [ ] Follow / Unfollow User
 - [ ] See the full photo
 - [ ] Edit my profile
-- [x] Create an account
 - [ ] Upload a photo
 - [ ] Edit the photo (Delete)
 - [ ] See the feed
