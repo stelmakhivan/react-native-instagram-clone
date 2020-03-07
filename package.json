@@ -6,7 +6,8 @@
   "author": "Ivan Stelmakh <stelmakh.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/server.js",
+    "deploy": "prisma deploy"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
