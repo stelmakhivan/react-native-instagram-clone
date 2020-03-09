@@ -8,9 +8,9 @@ Instagram Clone — Express + React Native
 - [x] Request Secret
 - [x] Confirm Secret (Log In)
 - [x] Like / Unlike the photo
-- [ ] Comment on a photo
-- [ ] Search by user
-- [ ] Search by location
+- [x] Comment on a photo
+- [x] Search by user
+- [x] Search by location
 - [ ] See user profile
 - [ ] Follow / Unfollow User
 - [ ] See the full photo
