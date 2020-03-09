@@ -1,9 +1,7 @@
-import dotenv from 'dotenv'
-import path from 'path'
-dotenv.config({ path: path.resolve(__dirname, '.env') })
-
 import sgMail from '@sendgrid/mail'
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
+import jwt from 'jsonwebtoken'
 
 import { adjectives, nouns } from './words'
 
@@ -17,8 +15,10 @@ export const sendSecretMail = (address, secret) => {
     from: `React Native Instagram Clone <${process.env.GOOGLE_ACCOUNT}>`,
     to: address,
     subject: 'Login Secret for React Native Instagram Clone',
-    html: `Hello! Your login secret is ${secret}<br/>Copy paste on the app/website to log in`
+    html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`
   }
 
   return sgMail.send(email)
 }
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET)
