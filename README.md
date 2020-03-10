@@ -12,8 +12,9 @@ Instagram Clone — Express + React Native
 - [x] Search by user
 - [x] Search by location
 - [x] Follow / Unfollow User
-- [ ] Edit my profile
-- [ ] See user profile
+- [x] Edit my profile
+- [x] See user profile
+- [ ] See my profile
 - [ ] See the full photo
 - [ ] Upload a photo
 - [ ] Edit the photo (Delete)
