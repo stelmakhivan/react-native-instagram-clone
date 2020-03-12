@@ -57,6 +57,7 @@ type Message {
   room: Room!
 }
 
-type Query {
-  something: String!
+type UserProfile {
+  user: User!
+  posts: [Post!]!
 }
