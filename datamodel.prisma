@@ -1,6 +1,10 @@
 type User {
   id: ID! @id
   userName: String! @unique
+  avatar: String
+    @default(
+      value: "https://scontent-hkg3-1.cdninstagram.com/vp/51ea9f9……74447047_1561961433825017856_n.jpg?_nc_ht=scontent-hkg3-1.cdninstagram.com"
+    )
   email: String! @unique
   firstName: String
   lastName: String
