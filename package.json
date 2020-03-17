@@ -6,7 +6,7 @@
   "author": "Ivan Stelmakh <stelmakh.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js",
+    "dev": "nodemon --exec babel-node server/server.js",
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "deploy": "prisma deploy"
