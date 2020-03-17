@@ -17,7 +17,7 @@ Instagram Clone — Express + React Native
 - [x] See my profile
 - [x] See the full photo
 - [x] Upload a photo
-- [ ] Edit the photo (Delete)
+- [x] Edit the photo (Delete)
 - [ ] See the feed
 - [ ] See rooms
 - [ ] See room
