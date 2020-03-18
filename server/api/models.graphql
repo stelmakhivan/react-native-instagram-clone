@@ -1,7 +1,7 @@
 type User {
   id: ID!
-  userName: String!
   avatar: String
+  userName: String!
   email: String!
   firstName: String
   lastName: String
@@ -10,26 +10,30 @@ type User {
   isSelf: Boolean!
   bio: String
   following: [User!]!
+  followingCount: Int!
   followers: [User!]!
+  followersCount: Int!
   posts: [Post!]!
+  postsCount: Int!
   likes: [Like!]!
   comments: [Comment!]!
   rooms: [Room!]!
-  loginSecret: String
+  loginSecret: String!
   createdAt: String
   updatedAt: String
 }
 
 type Post {
   id: ID!
-  user: User!
-  files: [File!]!
   location: String
   caption: String!
+  user: User!
+  files: [File!]!
   likes: [Like!]!
   comments: [Comment!]!
   isLiked: Boolean!
   likeCount: Int!
+  commentCount: Int!
   createdAt: String
   updatedAt: String
 }
@@ -73,13 +77,6 @@ type Message {
   from: User!
   to: User!
   room: Room!
-  createdAt: String
-  updatedAt: String
-}
-
-type UserProfile {
-  user: User!
-  posts: [Post!]!
   createdAt: String
   updatedAt: String
 }

@@ -2,7 +2,7 @@
 
 Instagram Clone — Express + React Native
 
-## User Stories
+## Graphql resolvers
 
 - [x] Create an account
 - [x] Request Secret
@@ -22,4 +22,4 @@ Instagram Clone — Express + React Native
 - [x] Send private Mesage
 - [x] See rooms
 - [x] See room
-- [ ] Receive Meesage (Realtime)
+- [x] Receive Meesage (Realtime)
