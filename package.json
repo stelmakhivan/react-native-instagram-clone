@@ -6,7 +6,9 @@
   "author": "Ivan Stelmakh <stelmakh.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/server.js",
+    "server": "nodemon --exec babel-node server/server.js",
+    "client": "npm start --prefix client",
+    "serve": "concurrently \"npm run server\" \"npm run client\"",
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "deploy": "prisma deploy"
@@ -17,6 +19,7 @@
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@sendgrid/mail": "^6.5.4",
+    "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "graphql-tools": "^4.0.7",
     "graphql-yoga": "^1.18.3",
