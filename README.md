@@ -24,7 +24,7 @@ Instagram Clone — Express + React Native
 - [x] See room
 - [x] Receive Meesage (Realtime)
 
-To start server add file .env into server folder with config
+To start server add file `.env` into server folder with config
 
 ```
 PORT=YOUR_PORT
