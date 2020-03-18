@@ -23,3 +23,12 @@ Instagram Clone — Express + React Native
 - [x] See rooms
 - [x] See room
 - [x] Receive Meesage (Realtime)
+
+To start server add file .env into server folder with config
+
+```
+PORT=YOUR_PORT
+GOOGLE_ACCOUNT="YOUR_GOOGLE_ACCOUNT"
+SENDGRID_API_KEY="YOUR_SENDGRID_API_KEY"
+JWT_SECRET="YOUR_JWT_SECRET"
+```
