@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet'
 import Input from '../components/Input'
 import Button from '../components/Button'
 
+import useInput from '../hooks/useInput'
+
 const Wrapper = styled.div`
   min-height: 80vh;
   display: flex;
@@ -50,6 +52,12 @@ const Form = styled(Box)`
 
 const Auth = () => {
   const [action, setAction] = useState('logIn')
+  const userName = useInput('')
+  const password = useInput('')
+  const firstName = useInput('')
+  const lastName = useInput('')
+  const email = useInput('')
+
   return (
     <Wrapper>
       <Form>
@@ -59,7 +67,8 @@ const Auth = () => {
               <title>Log In | InstaClone</title>
             </Helmet>
             <form>
-              <Input placeholder={'Email'} type="email" />
+              <Input placeholder={'User name'} {...userName} />
+              <Input placeholder={'Password'} type="password" {...password} />
               <Button text={'Log in'} />
             </form>
           </>
@@ -70,10 +79,11 @@ const Auth = () => {
               <title>Sign Up | InstaClone</title>
             </Helmet>
             <form>
-              <Input placeholder={'First name'} />
-              <Input placeholder={'Last name'} />
-              <Input placeholder={'Email'} type="email" />
-              <Input placeholder={'Username'} />
+              <Input placeholder={'First name'} {...firstName} />
+              <Input placeholder={'Last name'} {...lastName} />
+              <Input placeholder={'Email'} type="email" {...email} />
+              <Input placeholder={'User name'} {...userName} />
+              <Input placeholder={'Password'} type="password" {...password} />
               <Button text={'Sign up'} />
             </form>
           </>
