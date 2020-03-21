@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
+
+import Input from '../components/Input'
+import Button from '../components/Button'
 
 const Wrapper = styled.div`
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `
 
 const Box = styled.div`
@@ -25,10 +30,66 @@ const Link = styled.span`
   cursor: pointer;
 `
 
+const Form = styled(Box)`
+  padding: 40px;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
+  form {
+    width: 100%;
+    input {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 7px;
+      }
+    }
+    button {
+      margin-top: 10px;
+    }
+  }
+`
+
 const Auth = () => {
   const [action, setAction] = useState('logIn')
   return (
     <Wrapper>
+      <Form>
+        {action === 'logIn' && (
+          <>
+            <Helmet>
+              <title>Log In | InstaClone</title>
+            </Helmet>
+            <form>
+              <Input placeholder={'Email'} type="email" />
+              <Button text={'Log in'} />
+            </form>
+          </>
+        )}
+        {action === 'signUp' && (
+          <>
+            <Helmet>
+              <title>Sign Up | InstaClone</title>
+            </Helmet>
+            <form>
+              <Input placeholder={'First name'} />
+              <Input placeholder={'Last name'} />
+              <Input placeholder={'Email'} type="email" />
+              <Input placeholder={'Username'} />
+              <Button text={'Sign up'} />
+            </form>
+          </>
+        )}
+        {action === 'confirm' && (
+          <>
+            <Helmet>
+              <title>Confirm Secret | InstaClone</title>
+            </Helmet>
+            <form>
+              <Input placeholder="Paste your secret" required />
+              <Button text={'Confirm'} />
+            </form>
+          </>
+        )}
+      </Form>
       <StateChanger>
         {action === 'logIn' ? (
           <>
