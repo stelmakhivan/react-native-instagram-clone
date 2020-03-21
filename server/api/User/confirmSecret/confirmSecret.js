@@ -9,13 +9,13 @@ export default {
         await prisma.updateUser({
           where: { id: user.id },
           data: {
-            loginSecret: ''
-          }
+            loginSecret: '',
+          },
         })
         return generateToken(user.id)
       } else {
         throw Error('Wrong email/secret combination')
       }
-    }
-  }
+    },
+  },
 }
