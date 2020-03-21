@@ -55,7 +55,7 @@ const Auth = ({
   lastName,
   email,
   setAction,
-  onSubmit,
+  onLogin,
 }) => (
   <Wrapper>
     <Form>
@@ -64,7 +64,7 @@ const Auth = ({
           <Helmet>
             <title>Log In | InstaClone</title>
           </Helmet>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onLogin}>
             <Input placeholder={'Email'} type="email" {...email} />
             <Button text={'Log in'} />
           </form>
@@ -75,7 +75,7 @@ const Auth = ({
           <Helmet>
             <title>Sign Up | InstaClone</title>
           </Helmet>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onLogin}>
             <Input placeholder={'First name'} {...firstName} />
             <Input placeholder={'Last name'} {...lastName} />
             <Input placeholder={'Email'} type="email" {...email} />
@@ -89,7 +89,7 @@ const Auth = ({
           <Helmet>
             <title>Confirm Secret | InstaClone</title>
           </Helmet>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onLogin}>
             <Input placeholder="Paste your secret" required />
             <Button text={'Confirm'} />
           </form>
