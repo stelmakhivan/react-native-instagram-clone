@@ -2,6 +2,8 @@ import React from 'react'
 import { gql } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import styled, { ThemeProvider } from 'styled-components'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import GlobalStyles from '../styles/GlobalStyles'
 import Theme from '../styles/Theme'
@@ -16,7 +18,7 @@ const QUERY = gql`
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: ${({theme}) => theme.maxWidth};
+  max-width: ${({ theme }) => theme.maxWidth};
   width: 100%;
 `
 
@@ -31,6 +33,7 @@ export default () => {
         <Wrapper>
           <Router isLoggedIn={isLoggedIn} />
           <Footer />
+          <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
         </Wrapper>
       </>
     </ThemeProvider>
