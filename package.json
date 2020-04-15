@@ -6,7 +6,7 @@
   "author": "Ivan Stelmakh <stelmakh.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "server": "nodemon --exec babel-node server/server.js",
+    "server": "nodemon --watch server/ --exec babel-node server/server.js",
     "client": "npm start --prefix client",
     "serve": "concurrently \"npm run server\" \"npm run client\"",
     "generate": "prisma generate",

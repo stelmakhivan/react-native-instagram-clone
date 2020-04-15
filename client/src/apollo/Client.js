@@ -5,9 +5,14 @@ export default new ApolloClient({
   uri: 'http://localhost:4000',
   clientState: {
     defaults,
-    resolvers
+    resolvers,
   },
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }
+  request: (operation) => {
+    const token = localStorage.getItem('token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    })
+  },
 })
