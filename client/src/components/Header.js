@@ -70,7 +70,7 @@ export default withRouter(({ history }) => {
   const { data } = useQuery(ME)
 
   const onSearchSubmit = useCallback(
-    e => {
+    (e) => {
       e.preventDefault()
       history.push(`/search?term=${search.value}`)
     },
@@ -99,6 +99,7 @@ export default withRouter(({ history }) => {
         </HeaderColumn>
         <HeaderColumn>
           <form onSubmit={onSearchSubmit}>
+            {/* TODO: clear value when navigate to another route */}
             <SearchInput
               value={search.value}
               onChange={search.onChange}

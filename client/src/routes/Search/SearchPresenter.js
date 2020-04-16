@@ -63,6 +63,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
             <FatText text="No Posts Found" />
           ) : (
             data.searchPost.map((post) => (
+              // TODO: navigate to post
               <SquarePost
                 key={post.id}
                 likeCount={post.likeCount}
