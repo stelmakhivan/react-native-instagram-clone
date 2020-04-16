@@ -20,6 +20,8 @@ const Header = styled.header`
   width: 100%;
   margin: 0 auto;
   margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
 `
 
 const HeaderColumn = styled.div`
@@ -64,9 +66,9 @@ const Bio = styled.p`
 
 const Posts = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: 200px;
-  grid-auto-rows: 200px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 295px;
+  grid-gap: 30px;
 `
 
 export default ({ loading, data, logOut }) => {
