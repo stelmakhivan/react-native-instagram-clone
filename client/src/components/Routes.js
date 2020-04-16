@@ -13,7 +13,7 @@ const LoggedInRoutes = () => (
     <Route exact path="/" component={Feed} />
     <Route path="/explore" component={Explore} />
     <Route path="/search" component={Search} />
-    <Route path="/:username" component={Profile} />
+    <Route path="/:userName" component={Profile} />
     <Redirect from="*" to="/" />
   </Switch>
 )
@@ -29,7 +29,7 @@ const AppRouter = ({ isLoggedIn }) =>
   isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />
 
 AppRouter.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
 }
 
 export default AppRouter
