@@ -8,7 +8,7 @@
   "scripts": {
     "server": "nodemon --watch server/ --exec babel-node server/server.js",
     "client": "yarn --cwd client start",
-    "serve": "concurrently \"yarn server\" \"yarn client\"",
+    "serve:web": "concurrently \"yarn server\" \"yarn client\"",
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "deploy": "prisma deploy"

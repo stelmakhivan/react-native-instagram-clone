@@ -32,7 +32,7 @@ generate:
 
 6. Install `node_modules` in `client` folder
 
-7. Run `yarn serve`
+7. Run `yarn serve:web`
 
 ## Graphql resolvers
 
