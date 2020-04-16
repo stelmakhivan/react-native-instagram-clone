@@ -18,7 +18,7 @@ const PostContainer = ({
   comments,
   createdAt,
   caption,
-  location
+  location,
 }) => {
   const [isLikedS, setIsLiked] = useState(isLiked)
   const [likeCountS, setLikeCount] = useState(likeCount)
@@ -26,10 +26,10 @@ const PostContainer = ({
   const [selfComments, setSelfComments] = useState([])
   const comment = useInput('')
   const [toggleLikeMutation] = useMutation(TOGGLE_LIKE, {
-    variables: { postId: id }
+    variables: { postId: id },
   })
   const [addCommentMutation] = useMutation(ADD_COMMENT, {
-    variables: { postId: id, text: comment.value }
+    variables: { postId: id, text: comment.value },
   })
   const slide = useCallback(() => {
     const totalFiles = files.length
@@ -41,7 +41,7 @@ const PostContainer = ({
   }, [currentItem, files.length])
 
   useEffect(() => {
-    slide()
+    slide() // TODO: fixed unmount warnings
   }, [currentItem, slide])
 
   const toggleLike = useCallback(() => {
@@ -56,13 +56,13 @@ const PostContainer = ({
   }, [isLikedS, likeCountS, toggleLikeMutation])
 
   const onKeyPress = useCallback(
-    async event => {
+    async (event) => {
       const { which } = event
       if (which === 13) {
         event.preventDefault()
         try {
           const {
-            data: { addComment }
+            data: { addComment },
           } = await addCommentMutation()
           setSelfComments([...selfComments, addComment])
           comment.setValue('')
@@ -100,12 +100,12 @@ PostContainer.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.string.isRequired,
     avatar: PropTypes.string,
-    userName: PropTypes.string.isRequired
+    userName: PropTypes.string.isRequired,
   }).isRequired,
   files: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired
+      url: PropTypes.string.isRequired,
     })
   ).isRequired,
   likeCount: PropTypes.number.isRequired,
@@ -116,13 +116,13 @@ PostContainer.propTypes = {
       text: PropTypes.string.isRequired,
       user: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        userName: PropTypes.string.isRequired
-      }).isRequired
+        userName: PropTypes.string.isRequired,
+      }).isRequired,
     })
   ).isRequired,
   caption: PropTypes.string.isRequired,
   location: PropTypes.string,
-  createdAt: PropTypes.string.isRequired
+  createdAt: PropTypes.string.isRequired,
 }
 
 export default PostContainer
