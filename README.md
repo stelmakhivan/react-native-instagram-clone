@@ -13,7 +13,7 @@ SENDGRID_API_KEY="YOUR_SENDGRID_API_KEY"
 JWT_SECRET="YOUR_JWT_SECRET"
 ```
 
-2. Install all dependencies with `npm install` or `yarn`
+2. Install all dependencies with `npm install` or `yarn` in root, client and instaclone-app folders
 
 3. Configure your `prisma` account; in root directory put `prisma.yml`
 
@@ -26,13 +26,13 @@ generate:
     output: ./generated/prisma-client/
 ```
 
-4. Install globally `nodemon` and `prisma` packages
+4. Install globally `nodemon`, `prisma` and `expo-cli` packages
 
 5. Run `yarn prisma`
 
 6. Install `node_modules` in `client` folder
 
-7. Run `yarn serve:web`
+7. Run `yarn serve:web` for web or `yarn serve:app` for mobile
 
 ## Graphql resolvers
 

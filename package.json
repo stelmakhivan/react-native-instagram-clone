@@ -7,8 +7,10 @@
   "license": "MIT",
   "scripts": {
     "server": "nodemon --watch server/ --exec babel-node server/server.js",
+    "app": "yarn --cwd instaclone-app start",
     "client": "yarn --cwd client start",
     "serve:web": "concurrently \"yarn server\" \"yarn client\"",
+    "serve:app": "concurrently \"yarn server\" \"yarn app\"",
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "deploy": "prisma deploy"
