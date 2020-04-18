@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Text, View, AsyncStorage, TouchableOpacity } from 'react-native'
+import { AsyncStorage } from 'react-native'
 
 import ApolloClient from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -14,6 +14,9 @@ import { Asset } from 'expo-asset'
 
 import { ThemeProvider } from 'styled-components'
 import styles from './styles'
+
+import { AuthProvider } from './AuthContext'
+import NavController from './components/NavController'
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
@@ -61,39 +64,12 @@ export default function App() {
     preLoad()
   }, [preLoad])
 
-  const logUserIn = useCallback(async () => {
-    try {
-      await AsyncStorage.setItem('isLoggedIn', 'true')
-      setIsLoggedIn(true)
-    } catch (error) {
-      console.log('error', error)
-    }
-  }, [])
-
-  const logUserOut = useCallback(async () => {
-    try {
-      await AsyncStorage.setItem('isLoggedIn', 'false')
-      setIsLoggedIn(false)
-    } catch (error) {
-      console.log('error', error)
-    }
-  }, [])
-
   return loaded && client && isLoggedIn !== null ? (
     <ApolloProvider client={client}>
       <ThemeProvider theme={styles}>
-        <View
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          {isLoggedIn === true ? (
-            <TouchableOpacity onPress={logUserOut}>
-              <Text>Log out</Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity onPress={logUserIn}>
-              <Text>Log in</Text>
-            </TouchableOpacity>
-          )}
-        </View>
+        <AuthProvider isLoggedIn={isLoggedIn}>
+          <NavController />
+        </AuthProvider>
       </ThemeProvider>
     </ApolloProvider>
   ) : (
