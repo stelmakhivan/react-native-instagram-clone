@@ -12,6 +12,8 @@ import Search from '../screens/Tabs/Search'
 import Notifications from '../screens/Tabs/Notifications'
 import Profile from '../screens/Tabs/Profile'
 
+import MessagesLink from '../components/MessagesLink'
+
 const TabNavigation = () => {
   return (
     <Tab.Navigator>
@@ -20,6 +22,9 @@ const TabNavigation = () => {
         component={stackFactory({
           name: 'Home',
           component: Home,
+          options: {
+            headerRight: () => <MessagesLink />,
+          },
         })}
       />
       <Tab.Screen
