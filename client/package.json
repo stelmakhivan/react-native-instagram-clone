@@ -18,7 +18,8 @@
     "react-scripts": "3.4.0",
     "react-toastify": "^5.5.0",
     "styled-components": "^5.0.1",
-    "styled-reset": "^4.1.2"
+    "styled-reset": "^4.1.2",
+    "react-autosize-textarea": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
