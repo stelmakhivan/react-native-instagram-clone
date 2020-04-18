@@ -12,6 +12,8 @@ import { Ionicons } from '@expo/vector-icons'
 import * as Font from 'expo-font'
 import { Asset } from 'expo-asset'
 
+import { NavigationContainer } from '@react-navigation/native'
+
 import { ThemeProvider } from 'styled-components'
 import styles from './styles'
 
@@ -65,13 +67,15 @@ export default function App() {
   }, [preLoad])
 
   return loaded && client && isLoggedIn !== null ? (
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={styles}>
-        <AuthProvider isLoggedIn={isLoggedIn}>
-          <NavController />
-        </AuthProvider>
-      </ThemeProvider>
-    </ApolloProvider>
+    <NavigationContainer>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={styles}>
+          <AuthProvider isLoggedIn={isLoggedIn}>
+            <NavController />
+          </AuthProvider>
+        </ThemeProvider>
+      </ApolloProvider>
+    </NavigationContainer>
   ) : (
     <AppLoading />
   )

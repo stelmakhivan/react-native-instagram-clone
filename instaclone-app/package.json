@@ -11,6 +11,7 @@
     "@apollo/react-hooks": "^3.1.5",
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/native": "^5.1.5",
+    "@react-navigation/stack": "^5.2.11",
     "apollo-boost": "^0.4.7",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-cache-persist": "^0.1.1",
