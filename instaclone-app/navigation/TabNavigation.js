@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator()
 
+import stackFactory from './stackFacktory'
+
 import Home from '../screens/Tabs/Home'
 import Search from '../screens/Tabs/Search'
 import Notifications from '../screens/Tabs/Notifications'
@@ -13,8 +15,20 @@ import Profile from '../screens/Tabs/Profile'
 const TabNavigation = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen
+        name="Home"
+        component={stackFactory({
+          name: 'Home',
+          component: Home,
+        })}
+      />
+      <Tab.Screen
+        name="Search"
+        component={stackFactory({
+          name: 'Search',
+          component: Search,
+        })}
+      />
       <Tab.Screen
         name="Add"
         component={View}
@@ -27,8 +41,20 @@ const TabNavigation = () => {
           },
         })}
       />
-      <Tab.Screen name="Notifications" component={Notifications} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Notifications"
+        component={stackFactory({
+          name: 'Notifications',
+          component: Notifications,
+        })}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={stackFactory({
+          name: 'Profile',
+          component: Profile,
+        })}
+      />
     </Tab.Navigator>
   )
 }
