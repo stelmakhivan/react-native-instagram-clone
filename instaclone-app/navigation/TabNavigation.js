@@ -15,7 +15,18 @@ const TabNavigation = () => {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Add" component={View} />
+      <Tab.Screen
+        name="Add"
+        component={View}
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            // Prevent default action
+            e.preventDefault()
+
+            navigation.navigate('PhotoNavigation')
+          },
+        })}
+      />
       <Tab.Screen name="Notifications" component={Notifications} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
