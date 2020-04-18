@@ -10,6 +10,7 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@react-native-community/masked-view": "0.1.6",
+    "@react-navigation/bottom-tabs": "^5.2.7",
     "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.2.11",
     "apollo-boost": "^0.4.7",
@@ -31,7 +32,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-preset-expo": "~8.1.0",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "eslint": "^6.8.0"
   },
   "private": true
 }
