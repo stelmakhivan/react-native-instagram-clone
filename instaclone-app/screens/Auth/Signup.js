@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import AuthButton from '../../components/AuthButton'
+import AuthInput from '../../components/AuthInput'
 
 const View = styled.View`
   justify-content: center;
@@ -7,12 +9,11 @@ const View = styled.View`
   flex: 1;
 `
 
-const Text = styled.Text``
-
 const Signup = () => {
   return (
     <View>
-      <Text>Sign Up</Text>
+      <AuthInput />
+      <AuthButton onPress={() => null} text="Sign Up" />
     </View>
   )
 }
