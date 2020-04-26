@@ -18,8 +18,9 @@ const View = styled.View`
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-const Login = ({ navigation }) => {
-  const emailInput = useInput('')
+const Login = ({ navigation, route: { params: { email = '' } = {} } }) => {
+  console.log('email', email)
+  const emailInput = useInput(email)
   const [loading, setLoading] = useState(false)
 
   const [requestSecretMutation] = useMutation(LOG_IN, {
