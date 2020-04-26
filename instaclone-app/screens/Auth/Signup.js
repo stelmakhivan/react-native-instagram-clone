@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import * as Facebook from 'expo-facebook'
 
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_ACCOUNT } from './AuthQueries'
@@ -14,6 +15,14 @@ const View = styled.View`
   justify-content: center;
   align-items: center;
   flex: 1;
+`
+
+const FBContainer = styled.View`
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top-width: 1px;
+  border-color: ${({ theme }) => theme.lightGreyColor};
+  border-style: solid;
 `
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -33,6 +42,17 @@ const Signup = ({ navigation, route: { params: { email = '' } = {} } }) => {
       lastName: lNameInput.value,
     },
   })
+
+  const updateFormData = useCallback(
+    (emailValue, firstName, lastName) => {
+      emailInput.setValue(emailValue)
+      fNameInput.setValue(firstName)
+      lNameInput.setValue(lastName)
+      const [userName] = emailValue.split('@')
+      userNameInput.setValue(userName)
+    },
+    [emailInput, fNameInput, lNameInput, userNameInput]
+  )
 
   const handleSignup = useCallback(async () => {
     const { value: emailValue } = emailInput
@@ -67,6 +87,32 @@ const Signup = ({ navigation, route: { params: { email = '' } = {} } }) => {
     }
   }, [createAccountMutation, emailInput, fNameInput, navigation, userNameInput])
 
+  const fbLogin = useCallback(async () => {
+    try {
+      await Facebook.initializeAsync('2623270961276420')
+      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
+        permissions: ['public_profile', 'email'],
+      })
+      if (type === 'success') {
+        // Get the user's name using Facebook's Graph API
+        const response = await fetch(
+          `https://graph.facebook.com/me?access_token=${token}&fields=id,last_name,first_name,email`
+        )
+        const {
+          email: emailValue,
+          first_name,
+          last_name,
+        } = await response.json()
+        updateFormData(emailValue, first_name, last_name)
+        setLoading(false)
+      } else {
+        // type === 'cancel'
+      }
+    } catch ({ message }) {
+      Alert.alert(`Facebook Login Error: ${message}`)
+    }
+  }, [updateFormData])
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
@@ -94,6 +140,14 @@ const Signup = ({ navigation, route: { params: { email = '' } = {} } }) => {
           autoCorrect={false}
         />
         <AuthButton onPress={handleSignup} text="Sign up" loading={loading} />
+        <FBContainer>
+          <AuthButton
+            bgColor={'#2D4DA7'}
+            loading={false}
+            onPress={fbLogin}
+            text="Connect Facebook"
+          />
+        </FBContainer>
       </View>
     </TouchableWithoutFeedback>
   )
