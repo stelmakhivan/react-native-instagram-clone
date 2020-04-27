@@ -21,6 +21,7 @@
     "expo-asset": "~8.1.4",
     "expo-facebook": "~8.1.0",
     "expo-font": "~8.1.0",
+    "expo-google-app-auth": "^8.1.0",
     "graphql": "^15.0.0",
     "prop-types": "^15.7.2",
     "react": "~16.9.0",

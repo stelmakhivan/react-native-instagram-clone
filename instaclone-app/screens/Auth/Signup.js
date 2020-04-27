@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react'
 import { Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+
 import * as Facebook from 'expo-facebook'
+import * as Google from 'expo-google-app-auth'
 
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_ACCOUNT } from './AuthQueries'
@@ -23,6 +25,10 @@ const FBContainer = styled.View`
   border-top-width: 1px;
   border-color: ${({ theme }) => theme.lightGreyColor};
   border-style: solid;
+`
+
+const GoogleContainer = styled.View`
+  margin-top: 20px;
 `
 
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -113,6 +119,32 @@ const Signup = ({ navigation, route: { params: { email = '' } = {} } }) => {
     }
   }, [updateFormData])
 
+  const googleLogin = useCallback(async () => {
+    try {
+      setLoading(true)
+      const result = await Google.logInAsync({
+        androidClientId:
+          '7739539060-oafja6h6hslrnt7kfcfmrdporj7j4cg5.apps.googleusercontent.com',
+        iosClientId:
+          '7739539060-3338697p2p0d8mvld2fukk7pkaohcdrp.apps.googleusercontent.com',
+        scopes: ['profile', 'email'],
+      })
+      if (result.type === 'success') {
+        const user = await fetch('https://www.googleapis.com/userinfo/v2/me', {
+          headers: { Authorization: `Bearer ${result.accessToken}` },
+        })
+        const { email: emailValue, family_name, given_name } = await user.json()
+        updateFormData(emailValue, given_name, family_name)
+      } else {
+        return { canceled: true }
+      }
+    } catch (e) {
+      console.log(e)
+    } finally {
+      setLoading(false)
+    }
+  }, [updateFormData])
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
@@ -148,6 +180,14 @@ const Signup = ({ navigation, route: { params: { email = '' } = {} } }) => {
             text="Connect Facebook"
           />
         </FBContainer>
+        <GoogleContainer>
+          <AuthButton
+            bgColor={'#EE1922'}
+            loading={false}
+            onPress={googleLogin}
+            text="Connect Google"
+          />
+        </GoogleContainer>
       </View>
     </TouchableWithoutFeedback>
   )

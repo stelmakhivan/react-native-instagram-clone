@@ -2886,6 +2886,13 @@ expand-brackets@^2.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+expo-app-auth@~9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/expo-app-auth/-/expo-app-auth-9.0.0.tgz#879893b90bb083acd705012495bc907cd5d700e7"
+  integrity sha512-loDPUxVNhCJVxjDdLevoApOBQkcK8QQXSNyWqKIAvzwjuxQQ7EtwSXOVMThsPU/wWCHOW/Zbj7ykBYUmJi6jLA==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-asset@~8.1.4:
   version "8.1.4"
   resolved "https://registry.yarnpkg.com/expo-asset/-/expo-asset-8.1.4.tgz#5265c28c1c279b2f9779269195bec4caf250ba5d"
@@ -2926,6 +2933,14 @@ expo-font@~8.1.0:
   dependencies:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
+
+expo-google-app-auth@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/expo-google-app-auth/-/expo-google-app-auth-8.1.0.tgz#2f173cdd47733311ccdae911a1a6c74963a3593b"
+  integrity sha512-7daHlFd9zNMOpY49EPBVtgY+KUeI1/dFooEGNoQZcXPQGDo1Sw9AYqyYJvYNXni4n0sFHCFFHxEHL11ECXZzaw==
+  dependencies:
+    expo-app-auth "~9.0.0"
+    expo-constants "~9.0.0"
 
 expo-keep-awake@~8.1.0:
   version "8.1.0"

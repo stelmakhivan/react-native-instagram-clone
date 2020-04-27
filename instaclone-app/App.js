@@ -32,6 +32,7 @@ export default function App() {
       })
       await Asset.loadAsync([require('./assets/logo.png')])
 
+      await AsyncStorage.clear()
       const cache = new InMemoryCache()
       await persistCache({
         cache,
