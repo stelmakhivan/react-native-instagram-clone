@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Platform } from 'react-native'
+import styled from 'styled-components/native'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -16,6 +17,15 @@ import MessagesLink from '../components/MessagesLink'
 import NavIcon from '../components/NavIcon'
 
 import { stackStyles } from './config'
+import constants from '../constants'
+
+const HeaderLeftContainer = styled.View`
+  padding-left: 20px;
+`
+
+const Image = styled.Image`
+  width: ${constants.width / 2.5}px;
+`
 
 const TabNavigation = () => {
   return (
@@ -30,8 +40,18 @@ const TabNavigation = () => {
           name: 'Home',
           component: Home,
           options: {
+            headerLeft: () => (
+              <HeaderLeftContainer>
+                <NavIcon name="logo-instagram" size={36} />
+              </HeaderLeftContainer>
+            ),
+            headerTitle: () => (
+              <Image
+                resizeMode={'contain'}
+                source={require('../assets/logo.png')}
+              />
+            ),
             headerRight: () => <MessagesLink />,
-            headerTitle: () => <NavIcon name="logo-instagram" size={36} />,
             headerStyle: stackStyles,
           },
         })}

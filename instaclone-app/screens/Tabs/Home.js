@@ -18,7 +18,7 @@ export const FEED_QUERY = gql`
 `
 
 function renderPost({ item: post }) {
-  return <Post key={post.id} {...post} />
+  return <Post {...post} />
 }
 
 function keyExtractor(item) {
