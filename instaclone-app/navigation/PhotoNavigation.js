@@ -25,8 +25,8 @@ const PhotoTabs = () => {
           fontWeight: '600',
         },
       }}>
-      <Tab.Screen name="Take" component={TakePhoto} />
       <Tab.Screen name="Select" component={SelectPhoto} />
+      <Tab.Screen name="Take" component={TakePhoto} />
     </Tab.Navigator>
   )
 }
