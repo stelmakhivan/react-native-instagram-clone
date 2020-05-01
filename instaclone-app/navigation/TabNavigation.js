@@ -18,6 +18,7 @@ import NavIcon from '../components/NavIcon'
 
 import { stackStyles } from './config'
 import constants from '../constants'
+import SearchBar from '../components/SearchBar'
 
 const HeaderLeftContainer = styled.View`
   padding-left: 20px;
@@ -66,13 +67,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="Search"
-        component={stackFactory({
-          name: 'Search',
-          component: Search,
-          options: {
-            headerStyle: stackStyles,
-          },
-        })}
+        component={Search}
         options={{
           tabBarIcon: ({ focused }) => (
             <NavIcon
