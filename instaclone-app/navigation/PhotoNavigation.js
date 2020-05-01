@@ -9,16 +9,24 @@ import SelectPhoto from '../screens/Photo/SelectPhoto'
 import TakePhoto from '../screens/Photo/TakePhoto'
 import UploadPhoto from '../screens/Photo/UploadPhoto'
 import { stackStyles } from './config'
+import styles from '../styles'
 
 const PhotoTabs = () => {
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
       tabBarOptions={{
-        style: stackStyles,
+        style: [stackStyles, { paddingBottom: 25 }],
+        indicatorStyle: {
+          backgroundColor: styles.blackColor,
+          marginBottom: 25,
+        },
+        labelStyle: {
+          fontWeight: '600',
+        },
       }}>
-      <Tab.Screen name="SelectPhoto" component={SelectPhoto} />
-      <Tab.Screen name="TakePhoto" component={TakePhoto} />
+      <Tab.Screen name="Select" component={SelectPhoto} options={{}} />
+      <Tab.Screen name="Take" component={TakePhoto} options={{}} />
     </Tab.Navigator>
   )
 }
@@ -26,7 +34,11 @@ const PhotoTabs = () => {
 const PhotoNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ headerStyle: stackStyles }}>
-      <Stack.Screen name="PhotoTabs" component={PhotoTabs} />
+      <Stack.Screen
+        name="PhotoTabs"
+        component={PhotoTabs}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="UploadPhoto" component={UploadPhoto} />
     </Stack.Navigator>
   )
