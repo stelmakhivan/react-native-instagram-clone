@@ -2,11 +2,11 @@
 
 Screens:
 
-- [ ] Home
-- [ ] Search
+- [x] Home
+- [x] Search
 - [ ] Upload
 - [ ] Notifications (Challenge)
-- [ ] Profile
+- [x] Profile
 - [ ] Edit Profile (Challenge)
 - [ ] Photo Detail
 - [ ] Photo Comments (Challenge)

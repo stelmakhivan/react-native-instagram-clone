@@ -5,8 +5,14 @@ import SearchContainer from './SearchContainer'
 import SearchBar from '../../../components/SearchBar'
 import Detail from '../../Detail'
 import styles from '../../../styles'
+import UserDetail from '../../UserDetail'
 
 const Stack = createStackNavigator()
+
+const options = {
+  headerBackTitleVisible: false,
+  headerTintColor: styles.blackColor,
+}
 
 const Search = ({ name = 'Search' }) => {
   return (
@@ -28,14 +34,8 @@ const Search = ({ name = 'Search' }) => {
           ),
         })}
       />
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          headerBackTitleVisible: false,
-          headerTintColor: styles.blackColor,
-        }}
-      />
+      <Stack.Screen name="Detail" component={Detail} options={options} />
+      <Stack.Screen name="User" component={UserDetail} options={options} />
     </Stack.Navigator>
   )
 }

@@ -3,25 +3,30 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Detail from '../screens/Detail'
 import styles from '../styles'
+import UserDetail from '../screens/UserDetail'
+
+const Stack = createStackNavigator()
 
 const stackFactory = ({ name = 'InitialRoute', component, options = {} }) => {
-  const Stack = createStackNavigator()
-  return () => (
-    <Stack.Navigator>
-      <Stack.Screen name={name} component={component} options={options} />
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          ...{
-            headerBackTitleVisible: false,
-            headerTintColor: styles.blackColor,
-          },
-          ...options,
-        }}
-      />
-    </Stack.Navigator>
-  )
+  return React.memo(() => {
+    return (
+      <Stack.Navigator>
+        <Stack.Screen name={name} component={component} options={options} />
+        <Stack.Screen
+          name="Detail"
+          component={Detail}
+          options={{
+            ...{
+              headerBackTitleVisible: false,
+              headerTintColor: styles.blackColor,
+            },
+            ...options,
+          }}
+        />
+        <Stack.Screen name="User" component={UserDetail} options={options} />
+      </Stack.Navigator>
+    )
+  })
 }
 
 export default stackFactory

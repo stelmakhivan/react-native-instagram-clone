@@ -18,7 +18,6 @@ import NavIcon from '../components/NavIcon'
 
 import { stackStyles } from './config'
 import constants from '../constants'
-import SearchBar from '../components/SearchBar'
 
 const HeaderLeftContainer = styled.View`
   padding-left: 20px;
@@ -27,6 +26,31 @@ const HeaderLeftContainer = styled.View`
 const Image = styled.Image`
   width: ${constants.width / 2.5}px;
 `
+
+const HomeScreen = stackFactory({
+  name: 'Home',
+  component: Home,
+  options: {
+    headerLeft: () => (
+      <HeaderLeftContainer>
+        <NavIcon name="logo-instagram" size={36} />
+      </HeaderLeftContainer>
+    ),
+    headerTitle: () => (
+      <Image resizeMode={'contain'} source={require('../assets/logo.png')} />
+    ),
+    headerRight: () => <MessagesLink />,
+    headerStyle: stackStyles,
+  },
+})
+
+const ProfileScreen = stackFactory({
+  name: 'Profile',
+  component: Profile,
+  options: {
+    headerStyle: stackStyles,
+  },
+})
 
 const TabNavigation = () => {
   return (
@@ -37,25 +61,7 @@ const TabNavigation = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={stackFactory({
-          name: 'Home',
-          component: Home,
-          options: {
-            headerLeft: () => (
-              <HeaderLeftContainer>
-                <NavIcon name="logo-instagram" size={36} />
-              </HeaderLeftContainer>
-            ),
-            headerTitle: () => (
-              <Image
-                resizeMode={'contain'}
-                source={require('../assets/logo.png')}
-              />
-            ),
-            headerRight: () => <MessagesLink />,
-            headerStyle: stackStyles,
-          },
-        })}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <NavIcon
@@ -130,13 +136,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={stackFactory({
-          name: 'Profile',
-          component: Profile,
-          options: {
-            headerStyle: stackStyles,
-          },
-        })}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <NavIcon

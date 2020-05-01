@@ -4,6 +4,7 @@ import { Platform, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 import Swiper from 'react-native-swiper'
 import themeColors from '../styles'
+import { useNavigation } from '@react-navigation/native'
 
 import { gql } from 'apollo-boost'
 import { useMutation } from '@apollo/react-hooks'
@@ -72,6 +73,7 @@ const Post = ({
   comments = [],
   isLiked: isLikedProp,
 }) => {
+  const navigation = useNavigation()
   const [isLiked, setIsLiked] = useState(isLikedProp)
   const [likeCount, setLikeCount] = useState(likeCountProp)
   const [toggleLikeMutaton] = useMutation(TOGGLE_LIKE, {
@@ -90,11 +92,15 @@ const Post = ({
       setIsLiked((p) => !p)
     } catch (e) {}
   }, [isLiked, toggleLikeMutaton])
+  const navigateToProfile = useCallback(
+    () => navigation.navigate('User', { userName: user.userName }),
+    [navigation, user]
+  )
 
   return (
     <Container>
       <Header>
-        <Touchable>
+        <Touchable onPress={navigateToProfile}>
           <Avatar source={{ uri: user.avatar }} />
         </Touchable>
         <Touchable>
