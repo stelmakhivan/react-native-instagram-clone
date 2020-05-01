@@ -43,6 +43,9 @@ AWS_SECRET="YOUR_AWS_SECRET"
 AWS_BUCKET_NAME="YOUR_AWS_BUCKET_NAME"
 ```
 
+![Preview](/preview/preview1.png?raw=true)
+![Preview](/preview/preview2.png?raw=true)
+
 ## Graphql resolvers
 
 - [x] Create an account

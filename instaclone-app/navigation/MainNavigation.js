@@ -14,8 +14,8 @@ const MainNavigation = () => {
       headerMode="none"
       mode="modal"
       screenOptions={{ headerStyle: stackStyles }}>
-      <Stack.Screen name="PhotoNavigation" component={PhotoNavigation} />
       <Stack.Screen name="TabNavigation" component={TabNavigation} />
+      <Stack.Screen name="PhotoNavigation" component={PhotoNavigation} />
       <Stack.Screen name="MessageNavigation" component={MessageNavigation} />
     </Stack.Navigator>
   )
