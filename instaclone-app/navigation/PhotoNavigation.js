@@ -25,8 +25,8 @@ const PhotoTabs = () => {
           fontWeight: '600',
         },
       }}>
-      <Tab.Screen name="Select" component={SelectPhoto} options={{}} />
-      <Tab.Screen name="Take" component={TakePhoto} options={{}} />
+      <Tab.Screen name="Take" component={TakePhoto} />
+      <Tab.Screen name="Select" component={SelectPhoto} />
     </Tab.Navigator>
   )
 }
@@ -37,7 +37,7 @@ const PhotoNavigation = () => {
       <Stack.Screen
         name="PhotoTabs"
         component={PhotoTabs}
-        options={{ headerShown: false }}
+        options={{ headerTitle: 'Choose Photo' }}
       />
       <Stack.Screen name="UploadPhoto" component={UploadPhoto} />
     </Stack.Navigator>
