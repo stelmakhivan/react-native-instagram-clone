@@ -23,7 +23,15 @@ const stackFactory = ({ name = 'InitialRoute', component, options = {} }) => {
             ...options,
           }}
         />
-        <Stack.Screen name="User" component={UserDetail} options={options} />
+        <Stack.Screen
+          name="User"
+          component={UserDetail}
+          options={({ route: { params: { userName = '' } = {} } }) => ({
+            headerBackTitleVisible: false,
+            headerTintColor: styles.blackColor,
+            title: userName,
+          })}
+        />
       </Stack.Navigator>
     )
   })

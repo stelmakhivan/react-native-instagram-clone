@@ -32,7 +32,7 @@ generate:
 
 6. Install `node_modules` in `client` folder
 
-7. Run `yarn serve:web` for web or `yarn serve:app` for mobile
+7. Run `yarn serve:web` for web or `yarn serve:app` for mobile (you can also run `yarn serve` if you want to view all platforms)
 
 ## Graphql resolvers
 

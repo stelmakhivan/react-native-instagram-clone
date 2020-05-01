@@ -47,6 +47,17 @@ const HomeScreen = stackFactory({
 const ProfileScreen = stackFactory({
   name: 'Profile',
   component: Profile,
+  options: ({ route: { params: { userName = '' } = {} } }) => {
+    return {
+      headerStyle: stackStyles,
+      title: userName,
+    }
+  },
+})
+
+const NotificationsScreen = stackFactory({
+  name: 'Notifications',
+  component: Notifications,
   options: {
     headerStyle: stackStyles,
   },
@@ -110,13 +121,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="Notifications"
-        component={stackFactory({
-          name: 'Notifications',
-          component: Notifications,
-          options: {
-            headerStyle: stackStyles,
-          },
-        })}
+        component={NotificationsScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <NavIcon
