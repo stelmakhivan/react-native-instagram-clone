@@ -34,6 +34,15 @@ generate:
 
 7. Run `yarn serve:web` for web or `yarn serve:app` for mobile (you can also run `yarn serve` if you want to view all platforms)
 
+8. If you want to upload images - you need to sign in `Amason Web Services` (I used free trial aws account and S3 bucket) and put your settings to `.env` like
+
+```
+....
+AWS_KEY="YOUT_AWS_KEY"
+AWS_SECRET="YOUR_AWS_SECRET"
+AWS_BUCKET_NAME="YOUR_AWS_BUCKET_NAME"
+```
+
 ## Graphql resolvers
 
 - [x] Create an account
