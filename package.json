@@ -15,6 +15,7 @@
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "deploy": "prisma deploy",
+    "prebuild": "yarn run generate",
     "build": "babel server -d build",
     "postbuild": "cd server && copy ./api/**/*.graphql ../build/api/",
     "start": "node build/server.js"
