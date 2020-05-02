@@ -5,7 +5,7 @@ export default new ApolloClient({
   uri:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:4000'
-      : 'http://localhost:4000', // replace it with real URL
+      : process.env.REACT_APP_BACKEND_URL,
   clientState: {
     defaults,
     resolvers,
