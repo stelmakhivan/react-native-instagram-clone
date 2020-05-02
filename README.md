@@ -11,6 +11,7 @@ PORT=YOUR_PORT
 GOOGLE_ACCOUNT="YOUR_GOOGLE_ACCOUNT"
 SENDGRID_API_KEY="YOUR_SENDGRID_API_KEY"
 JWT_SECRET="YOUR_JWT_SECRET"
+PRISMA_ENDPOINT=YOUR_PRISMA_ENDPOINT
 ```
 
 2. Install all dependencies with `npm install` or `yarn` in root, client and instaclone-app folders
