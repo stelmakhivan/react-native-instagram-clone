@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3161d8f7-bdce-46f7-b76d-a4f05d87f397/deploy-status)](https://app.netlify.com/sites/react-native-instaclone/deploys)
+
+Click for [preview](https://react-native-instaclone.netlify.app/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
