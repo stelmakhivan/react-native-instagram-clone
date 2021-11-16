@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/runtime": "^7.9.6",
     "@sendgrid/mail": "^6.5.4",
-    "aws-sdk": "^2.668.0",
+    "aws-sdk": "^2.814.0",
     "concurrently": "^5.1.0",
     "copy": "^0.3.2",
     "dotenv": "^8.2.0",
